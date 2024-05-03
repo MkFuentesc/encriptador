@@ -17,10 +17,12 @@ public class Main {
         Scanner indicaRutadeArchivo = new Scanner(System.in);
         String nombreDeArchivo = indicaRutadeArchivo.nextLine();
         String ruta = Files.readString(Path.of(nombreDeArchivo));
-        /*Se genera clave aleatoria y se pasa al metodo que cifrara el archivo*/
+
+        /*Se genera clave aleatoria y se pasa al metodo que cifrara al archivo codificado.txt */
         String textoEncriptado  = encriptador.asignarClaveAleatoria(ruta);
         String nombreArchivoCodificado = "c:\\proyecto\\codificado.txt";
         repositor.guardarAarchivo(textoEncriptado, nombreArchivoCodificado);
+
         /*Desencriptacion del archivo cifrado*/
         DesencriptadorPorFuerzaBruta desencriptador = new DesencriptadorPorFuerzaBruta();
         desencriptador.desencriptarPorFuerzaBruta(textoEncriptado);
